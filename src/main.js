@@ -22,3 +22,15 @@ function addSelectedProduct(product, quantity) {
     };
     selectedProducts.push(orderLineItem);
 }
+function removeSelectedProduct(lineItemId) {
+    selectedProducts = selectedProducts.filter(item => item.id !== lineItemId);
+}
+function updateSelectedProductQuantity(lineItemId, quantity) {
+    selectedProducts = selectedProducts.map(item => {
+        if (item.id === lineItemId) {
+            item.quantity = quantity;
+            item.amount = item.product.price * quantity;
+        }
+        return item;
+    });
+}

@@ -66,3 +66,17 @@ function addSelectedProduct(product: Product, quantity: number): void{
     };
     selectedProducts.push(orderLineItem);
 }
+
+function removeSelectedProduct(lineItemId: number): void {
+    selectedProducts = selectedProducts.filter(item => item.id !== lineItemId);
+  }
+
+function updateSelectedProductQuantity(lineItemId: number, quantity: number): void {
+    selectedProducts = selectedProducts.map(item => {
+      if (item.id === lineItemId) {
+        item.quantity = quantity;
+        item.amount = item.product.price * quantity;
+      }
+      return item;
+    });
+  }
