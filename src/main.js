@@ -1,7 +1,7 @@
 "use strict";
 const costumers = [
-    { id: 100312, firstname: "Mario", lastname: "Rossi", age: 27, email: "Mario.Rossi@gmail.com", phone: 3245522654, locale: "Italia", billingAddress: { street: "Via dei Tulipani", city: "Milano", state: "Italia", postalCode: "20019" }, shippingAddress: { street: "Via dei Tulipani", city: "Milano", state: "Italia", postalCode: "20019" } },
-    { id: 214122, firstname: "Antonio", lastname: "Verdi", age: 47, email: "Antonio.Verdi@gmail.com", phone: 3285643876, locale: "Italia", billingAddress: { street: "Via delle Rose", city: "Torino", state: "Italia", postalCode: "58741" }, shippingAddress: { street: "Via delle Rose", city: "Torino", state: "Italia", postalCode: "58741" } }
+    { id: 100312, firstname: "Mario", lastname: "Rossi", age: 27, email: "Mario.Rossi@gmail.com", phone: 3245522654, locale: "Italia", billingAddress: { street: "Via dei Tulipani", city: "Milano", state: "Italia", postalCode: 20019 }, shippingAddress: { street: "Via dei Tulipani", city: "Milano", state: "Italia", postalCode: 20019 } },
+    { id: 214122, firstname: "Antonio", lastname: "Verdi", age: 47, email: "Antonio.Verdi@gmail.com", phone: 3285643876, locale: "Italia", billingAddress: { street: "Via delle Rose", city: "Torino", state: "Italia", postalCode: 58741 }, shippingAddress: { street: "Via delle Rose", city: "Torino", state: "Italia", postalCode: 58741 } }
 ];
 const avaibleProducts = [
     { code: "A1", name: "Prodotto 1", variants: ["Variante 1", "Variante 2"], description: "Prodotto 1 ........", price: 100, retailer: "Retailer 1" },
