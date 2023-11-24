@@ -84,5 +84,4 @@ const avaibleProducts = [
         retailer: "Retailer 5",
     },
 ];
-const selectedProducts = [];
-export { costumers, avaibleProducts, selectedProducts };
+export { costumers, avaibleProducts };
