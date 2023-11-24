@@ -171,7 +171,5 @@ const avaibleProducts: Product[] = [
   }, */
 ]
 
-const selectedProducts: OrderLineItems[] = []
-
-export { avaibleProducts, costumers, selectedProducts }
+export { avaibleProducts, costumers }
 export type { Address, Customer, Order, OrderLineItems, Product }

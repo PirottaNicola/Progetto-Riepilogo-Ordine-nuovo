@@ -126,5 +126,4 @@ const avaibleProducts = [
       retailer: 'Retailer 5',
     }, */
 ];
-const selectedProducts = [];
-export { avaibleProducts, costumers, selectedProducts };
+export { avaibleProducts, costumers };

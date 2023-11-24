@@ -1,10 +1,6 @@
-import {
-  OrderLineItems,
-  Product,
-  avaibleProducts,
-  costumers,
-  selectedProducts,
-} from './data'
+import { OrderLineItems, Product, avaibleProducts, costumers } from './data'
+
+let selectedProducts: OrderLineItems[] = []
 
 // Funzione per aggiungere un prodotto
 function addSelectedProduct(product: Product, quantity: number): void {
@@ -18,23 +14,19 @@ function addSelectedProduct(product: Product, quantity: number): void {
   selectedProducts.push(orderLineItem)
 }
 
-function removeSelectedProduct(lineItemId: number): OrderLineItems[] {
-  const newSelectedProducts = selectedProducts.filter(
-    (item) => item.id !== lineItemId
-  )
-  return newSelectedProducts
+function removeSelectedProduct(lineItemId: number): void {
+  selectedProducts = selectedProducts.filter((item) => item.id !== lineItemId)
 }
 
 function updateSelectedProductQuantity(
   lineItemId: number,
   quantity: number
-): OrderLineItems[] {
-  const newSelectedProducts = selectedProducts.map((item) => {
+): void {
+  selectedProducts = selectedProducts.map((item) => {
     if (item.id === lineItemId) {
       item.quantity = quantity
       item.amount = item.product.price * quantity
     }
     return item
   })
-  return newSelectedProducts
 }
