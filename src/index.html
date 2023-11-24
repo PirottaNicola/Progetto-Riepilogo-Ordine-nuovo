@@ -5,9 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AmaZone</title>
-    <script defer type="module" src="main.js"></script>
-    <script defer type="module" src="helper.js"></script>
-    <script defer type="module" src="data.js"></script>
+    <script defer type="module" src="./main.js"></script>
     <!-- import bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 </head>
@@ -19,31 +17,7 @@
     </header>
     <main class="container-fluid">
         <div id="avaiableItems" class="d-flex flex-wrap justify-content-around bg-primary p-4">
-            <div class="card p-1 mb-4" style="max-width: 300px">
-                <div class="card-header">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                        <label class="form-check-label" for="defaultCheck1">
-                            Add to cart
-                        </label>
-                    </div>
-                </div>
-                <div class="card-body bg-light">
-                    <img src="../src/static/padella.jpg" class="img-fluid mb-4" alt="Responsive image" />
-                    <h4 class="card-title">nome prodotto</h4>
-                    <!--price-->
-                    <h2 class="card-title text-success">29,99$</h2>
-                    <select class="form-control mb-4">
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                    </select>
-                    <h6 class="card-title">Select quantity</h6>
-                    <input type="number" class="form-control" id="quantity" name="quantity" min="1" max="5" value="1"
-                        onkeydown="return false" style="caret-color: transparent" />
-                </div>
-            </div>
-            <!-- Add more columns with cards here -->
+            <!--todo Add avaiable items here -->
         </div>
         <!--? SELECTED ITEMS SECTION-->
         <div class="text-center m-4">
@@ -62,7 +36,7 @@
                         </button>
                     </li>
                 </ul>
-                <!-- Add more columns with cards here -->
+                <!-- todo add selected items here -->
             </div>
         </div>
     </main>
