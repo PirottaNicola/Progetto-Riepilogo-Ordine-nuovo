@@ -4,8 +4,8 @@ import type {
   Order,
   OrderLineItems,
   Product,
-} from './data.js'
-import { avaibleProducts, costumers } from './data.js'
+} from "./data.js";
+import { avaibleProducts, costumers } from "./data.js";
 
 const provaTemplate = `<div class="card p-1 mb-4" style="max-width: 300px">
           <div class="card-header">
@@ -46,53 +46,53 @@ const provaTemplate = `<div class="card p-1 mb-4" style="max-width: 300px">
               style="caret-color: transparent"
             />
           </div>
-        </div>`
+        </div>`;
 
 function render(array: any[], element: HTMLElement): void {
-  let html = ''
+  let html = "";
   array.forEach((item) => {
     // popola template con i dati dell'array
-    let computedString = populateRenderedObject(item)
-    html += computedString
-  })
-  element.innerHTML = html
+    let computedString = populateRenderedObject(item);
+    html += computedString;
+  });
+  element.innerHTML = html;
 }
 
 function populateRenderedObject(object: any): string {
-  let template = objectToTemplate(typeof object) // todo: typeof?
+  let template = objectToTemplate(typeof object); // todo: typeof?
   for (const key in object) {
-    template = template.replace(`###${key}`, object[key])
+    template = template.replace(`###${key}`, object[key]);
   }
   // chiama la funzione che popola le opzioni del select se l'oggetto ha una proprietà variants
-  if (object.hasOwnProperty('variants')) {
+  if (object.hasOwnProperty("variants")) {
     template = template.replace(
       `###option`,
-      populateOptions(object['variants'])
-    )
+      populateOptions(object["variants"])
+    );
   }
-  return template
+  return template;
 }
 
 function populateOptions(variants: Array<string>): string {
-  const option = `<option>###option</option>`
-  console.log('variants', variants)
+  const option = `<option>###option</option>`;
+  console.log("variants", variants);
 
-  let computedOptions = ''
+  let computedOptions = "";
 
   variants.forEach((variant) => {
-    computedOptions += option.replace(/###option/g, variant)
-  })
-  console.log('computedOptions', computedOptions)
+    computedOptions += option.replace(/###option/g, variant);
+  });
+  console.log("computedOptions", computedOptions);
 
   // popola template con i dati del
-  return computedOptions
+  return computedOptions;
 }
 
 function objectToTemplate(objectName: string): string {
-  let template = provaTemplate //? di prova
+  let template = provaTemplate; //? di prova
   // cerca tra i template quello che ha il nome uguale a quello dell'oggetto e restituiscilo
   // arrayDiTemplate.find(template => template.name === objectName)
-  return template
+  return template;
 }
 
-export { render }
+export { render };
