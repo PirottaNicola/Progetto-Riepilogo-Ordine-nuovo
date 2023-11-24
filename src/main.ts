@@ -1,6 +1,10 @@
-import { costumers, avaibleProducts, OrderLineItems, Product } from "./data";
-
-let selectedProducts: OrderLineItems[];
+import {
+  costumers,
+  avaibleProducts,
+  OrderLineItems,
+  Product,
+  selectedProducts,
+} from "./data";
 
 // Funzione per aggiungere un prodotto
 function addSelectedProduct(product: Product, quantity: number): void {
@@ -14,19 +18,23 @@ function addSelectedProduct(product: Product, quantity: number): void {
   selectedProducts.push(orderLineItem);
 }
 
-function removeSelectedProduct(lineItemId: number): void {
-  selectedProducts = selectedProducts.filter((item) => item.id !== lineItemId);
+function removeSelectedProduct(lineItemId: number): OrderLineItems[] {
+  const newSelectedProducts = selectedProducts.filter(
+    (item) => item.id !== lineItemId
+  );
+  return newSelectedProducts;
 }
 
 function updateSelectedProductQuantity(
   lineItemId: number,
   quantity: number
-): void {
-  selectedProducts = selectedProducts.map((item) => {
+): OrderLineItems[] {
+  const newSelectedProducts = selectedProducts.map((item) => {
     if (item.id === lineItemId) {
       item.quantity = quantity;
       item.amount = item.product.price * quantity;
     }
     return item;
   });
+  return newSelectedProducts;
 }

@@ -1,4 +1,4 @@
-let selectedProducts;
+import { selectedProducts, } from "./data";
 // Funzione per aggiungere un prodotto
 function addSelectedProduct(product, quantity) {
     const lineItemId = selectedProducts.length + 1;
@@ -11,15 +11,16 @@ function addSelectedProduct(product, quantity) {
     selectedProducts.push(orderLineItem);
 }
 function removeSelectedProduct(lineItemId) {
-    selectedProducts = selectedProducts.filter((item) => item.id !== lineItemId);
+    const newSelectedProducts = selectedProducts.filter((item) => item.id !== lineItemId);
+    return newSelectedProducts;
 }
 function updateSelectedProductQuantity(lineItemId, quantity) {
-    selectedProducts = selectedProducts.map((item) => {
+    const newSelectedProducts = selectedProducts.map((item) => {
         if (item.id === lineItemId) {
             item.quantity = quantity;
             item.amount = item.product.price * quantity;
         }
         return item;
     });
+    return newSelectedProducts;
 }
-export {};
