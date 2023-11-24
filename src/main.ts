@@ -1,43 +1,36 @@
-import {
-  OrderLineItems,
-  Product,
-  avaibleProducts,
-  costumers,
-  mockOrderLineItems,
-  mockProduct1,
-  mockProduct2,
-} from './data.js'
-import { diFilippo, render } from './helper.js'
+import { OrderLineItems, Product, avaibleProducts, costumers } from "./data.js";
+import { diFilippo, render } from "./helper.js";
 
 let selectedProducts: OrderLineItems[] = [
   {
     id: 1,
-    product: mockProduct1,
+    product: avaibleProducts[0],
     amount: 999.99,
     quantity: 2,
   },
   {
     id: 2,
-    product: mockProduct2,
+    product: avaibleProducts[1],
     amount: 499.99,
     quantity: 3,
   },
-]
+];
 
 // Funzione per aggiungere un prodotto
 function addSelectedProduct(product: Product, quantity: number): void {
-  const lineItemId = selectedProducts.length + 1
+  const lineItemId = selectedProducts.length + 1;
   const orderLineItem: OrderLineItems = {
     id: lineItemId,
     product,
     amount: product.price * quantity,
     quantity,
-  }
-  selectedProducts.push(orderLineItem)
+  };
+  selectedProducts.push(orderLineItem);
 }
 
 function removeSelectedProduct(lineItemId: number): void {
-  selectedProducts = selectedProducts.filter((item) => item.id !== lineItemId)
+  selectedProducts = selectedProducts.filter((item) => item.id !== lineItemId);
+  displaySelectedProducts();
 }
 
 function updateSelectedProductQuantity(
@@ -46,20 +39,22 @@ function updateSelectedProductQuantity(
 ): void {
   selectedProducts = selectedProducts.map((item) => {
     if (item.id === lineItemId) {
-      item.quantity = quantity
-      item.amount = item.product.price * quantity
+      item.quantity = quantity;
+      item.amount = item.product.price * quantity;
     }
-    return item
-  })
+    return item;
+  });
 }
 
-const listSelectedItemsHTML = document.getElementById('selected-items-list')
+const listSelectedItemsHTML = document.getElementById("selected-items-list");
 
 function displaySelectedProducts(): void {
-  // listSelectedItemsHTML?.innerHTML = "";
-  selectedProducts.forEach((item) => {
-    const li = document.createElement('li')
-    li.innerHTML = `
+  listSelectedItemsHTML!.innerHTML = ""; // clear the list before adding new item
+  selectedProducts.length >= 1
+    ? selectedProducts.forEach((item) => {
+        const li = document.createElement("li");
+        // li.addEventListener("click", () => removeSelectedProduct(item.id));
+        li.innerHTML = `
     <li
     class="list-group-item d-flex justify-content-between align-items-center"
   >
@@ -67,21 +62,33 @@ function displaySelectedProducts(): void {
       <span class="badge badge-light">${item.quantity}</span>
       ${item.product.name}
     </justify-content-left>
-    <button type="button" class="close" aria-label="Close" onclick="removeSelectedProduct(${item.id})">
-      <span aria-hidden="true">&times;</span>
+    <button type="button" class="close" aria-label="Close">
+      <span aria-hidden="true" id="btn-remove-selected-item">&times;</span>
     </button>
   </li>
-    `
-    listSelectedItemsHTML?.appendChild(li)
-  })
+    `;
+        listSelectedItemsHTML?.appendChild(li);
+        li.lastElementChild?.lastElementChild?.addEventListener("click", () =>
+          removeSelectedProduct(item.id)
+        );
+      })
+    : (listSelectedItemsHTML!.innerHTML = `
+  <li
+  class="list-group-item d-flex justify-content-between align-items-center"
+  >
+    <justify-content-center>
+      No products selected
+    </justify-content-center>
+  </li>
+  `);
 }
 
-displaySelectedProducts()
+displaySelectedProducts();
 
-render(avaibleProducts, document.getElementById('avaiableItems')!) // the ! is a non-null assertion operator
+render(avaibleProducts, document.getElementById("avaiableItems")!); // the ! is a non-null assertion operator
 
 //* js da matteo
-const nextButton = document.getElementById('nextButton')
-nextButton.addEventListener('click', function () {
-  diFilippo(selectedProducts)
-})
+const nextButton = document.getElementById("nextButton");
+nextButton.addEventListener("click", function () {
+  diFilippo(selectedProducts);
+});
