@@ -4,7 +4,7 @@
 function render(array: any[], element: HTMLElement): void {
   let html = ''
   array.forEach((item) => {
-    html += `<li>${item}</li>`
+    html += `${item.render}`
   })
   element.innerHTML = html
 }
