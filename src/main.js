@@ -61,3 +61,18 @@ function displaySelectedProducts() {
 }
 displaySelectedProducts();
 render(avaibleProducts, document.getElementById("avaiableItems")); // the ! is a non-null assertion operator
+
+const cancelButton = document.getElementById('cancelButton');
+const selectedItemsList = document.getElementById('selectedItemsList');
+
+cancelButton.addEventListener('click', function() {
+    const selectedItems = selectedItemsList.querySelectorAll('.list-group-item');
+  
+    if (selectedItems.length > 0) {
+        
+        const lastSelectedItem = selectedItems[selectedItems.length - 1];
+        lastSelectedItem.remove();
+    } 
+});
+
+

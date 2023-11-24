@@ -37,6 +37,25 @@
                 <!-- todo add selected items here -->
             </div>
         </div>
+        <button id="cancelButton" class="btn btn-danger mt-3">Annulla</button>
+        <button id="nextnextButton" class="btn btn-primary">Next</button>
+
+      
+        <div id="shippingBillingSection" style="display: none;">
+            <h2>Spedizione e Indirizzo di Fatturazione</h2>
+           
+            <form id="shippingBillingForm">
+                
+                <label for="shippingAddress">Indirizzo di spedizione:</label>
+                <input type="text" id="shippingAddress" name="shippingAddress"><br><br>
+
+                <label for="billingAddress">Indirizzo di fatturazione:</label>
+                <input type="text" id="billingAddress" name="billingAddress"><br><br>
+
+                <button type="submit" class="btn btn-primary">Conferma Indirizzi</button>
+            </form>
+        </div>
+        
       </div>
     </main>
     <footer>
