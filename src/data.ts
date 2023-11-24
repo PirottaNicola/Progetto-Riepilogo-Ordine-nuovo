@@ -183,7 +183,7 @@ const OBJECT_TO_TEMPLATE = new Map<string, string>([
   Order: orderTemplate,
   OrderLineItems: orderLineItemsTemplate, */
     'Product',
-    `<div class="card p-1 mb-4" style="max-width: 300px">
+    `<div id="###code" class="card p-1 mb-4" style="max-width: 300px">
           <div class="card-header">
             <div class="form-check">
               <input
@@ -226,5 +226,12 @@ const OBJECT_TO_TEMPLATE = new Map<string, string>([
   ],
 ])
 
-export { OBJECT_TO_TEMPLATE, avaibleProducts, costumers }
+export {
+  OBJECT_TO_TEMPLATE,
+  avaibleProducts,
+  costumers,
+  mockOrderLineItems,
+  mockProduct1,
+  mockProduct2,
+}
 export type { Address, Customer, Order, OrderLineItems, Product }
