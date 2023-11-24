@@ -1,4 +1,4 @@
-import { selectedProducts, } from "./data";
+import { selectedProducts, } from './data';
 // Funzione per aggiungere un prodotto
 function addSelectedProduct(product, quantity) {
     const lineItemId = selectedProducts.length + 1;
