@@ -1,16 +1,15 @@
 import { avaibleProducts } from "./data.js";
 import { render } from "./helper.js";
-import { mockProduct1, mockProduct2 } from "./data.js"; // to remove
 let selectedProducts = [
     {
         id: 1,
-        product: mockProduct1,
+        product: avaibleProducts[0],
         amount: 999.99,
         quantity: 2,
     },
     {
         id: 2,
-        product: mockProduct2,
+        product: avaibleProducts[1],
         amount: 499.99,
         quantity: 3,
     },
@@ -75,3 +74,29 @@ function displaySelectedProducts() {
 }
 displaySelectedProducts();
 render(avaibleProducts, document.getElementById("avaiableItems")); // the ! is a non-null assertion operator
+//* js da matteo
+const nextButton = document.getElementById("nextButton");
+nextButton.addEventListener("click", function () {
+    const prodottiSelezionati = document.querySelectorAll(".form-check-input:checked");
+    const prodSelected = [];
+    prodottiSelezionati.forEach((prodotto) => {
+        const card = prodotto.closest(".card");
+        const titolo = card.querySelector(".card-title").innerText;
+        const select = card.querySelector(".form-control");
+        const quantita = select.value;
+        prodSelected.push({
+            titolo: titolo,
+            quantita: quantita,
+        });
+    });
+    if (prodSelected.length === 0) {
+        alert("Nessun prodotto selezionato!");
+        return;
+    }
+    console.log("Elementi selezionati:", prodSelected);
+    const newButton = document.createElement("button");
+    newButton.id = "nextButton";
+    newButton.textContent = "Next";
+    newButton.classList.add("btn", "btn-primary", "btn-lg", "btn-block");
+    document.body.appendChild(newButton);
+});
