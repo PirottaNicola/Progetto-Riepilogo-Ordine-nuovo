@@ -1,4 +1,5 @@
-import { OrderLineItems, Product, avaibleProducts, costumers } from './data'
+import { OrderLineItems, Product, avaibleProducts, costumers } from './data.js'
+import { render } from './helper.js'
 
 let selectedProducts: OrderLineItems[] = []
 
@@ -30,3 +31,5 @@ function updateSelectedProductQuantity(
     return item
   })
 }
+
+render(avaibleProducts, document.getElementById('avaiableItems')!) // the ! is a non-null assertion operator

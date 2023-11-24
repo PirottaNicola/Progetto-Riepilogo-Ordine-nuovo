@@ -1,3 +1,5 @@
+import { avaibleProducts } from './data.js';
+import { render } from './helper.js';
 let selectedProducts = [];
 // Funzione per aggiungere un prodotto
 function addSelectedProduct(product, quantity) {
@@ -22,4 +24,4 @@ function updateSelectedProductQuantity(lineItemId, quantity) {
         return item;
     });
 }
-export {};
+render(avaibleProducts, document.getElementById('avaiableItems')); // the ! is a non-null assertion operator
