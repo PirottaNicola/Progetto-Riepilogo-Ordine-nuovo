@@ -1,108 +1,108 @@
 const costumers = [
-    {
-        id: 100312,
-        firstname: 'Mario',
-        lastname: 'Rossi',
-        age: 27,
-        email: 'Mario.Rossi@gmail.com',
-        phone: 3245522654,
-        locale: 'Italia',
-        billingAddress: {
-            street: 'Via dei Tulipani',
-            city: 'Milano',
-            state: 'Italia',
-            postalCode: 20019,
-        },
-        shippingAddress: {
-            street: 'Via dei Tulipani',
-            city: 'Milano',
-            state: 'Italia',
-            postalCode: 20019,
-        },
+  {
+    id: 100312,
+    firstname: 'Mario',
+    lastname: 'Rossi',
+    age: 27,
+    email: 'Mario.Rossi@gmail.com',
+    phone: 3245522654,
+    locale: 'Italia',
+    billingAddress: {
+      street: 'Via dei Tulipani',
+      city: 'Milano',
+      state: 'Italia',
+      postalCode: 20019,
     },
-    {
-        id: 214122,
-        firstname: 'Antonio',
-        lastname: 'Verdi',
-        age: 47,
-        email: 'Antonio.Verdi@gmail.com',
-        phone: 3285643876,
-        locale: 'Italia',
-        billingAddress: {
-            street: 'Via delle Rose',
-            city: 'Torino',
-            state: 'Italia',
-            postalCode: 58741,
-        },
-        shippingAddress: {
-            street: 'Via delle Rose',
-            city: 'Torino',
-            state: 'Italia',
-            postalCode: 58741,
-        },
+    shippingAddress: {
+      street: 'Via dei Tulipani',
+      city: 'Milano',
+      state: 'Italia',
+      postalCode: 20019,
     },
-];
+  },
+  {
+    id: 214122,
+    firstname: 'Antonio',
+    lastname: 'Verdi',
+    age: 47,
+    email: 'Antonio.Verdi@gmail.com',
+    phone: 3285643876,
+    locale: 'Italia',
+    billingAddress: {
+      street: 'Via delle Rose',
+      city: 'Torino',
+      state: 'Italia',
+      postalCode: 58741,
+    },
+    shippingAddress: {
+      street: 'Via delle Rose',
+      city: 'Torino',
+      state: 'Italia',
+      postalCode: 58741,
+    },
+  },
+]
 const avaibleProducts = [
-    {
-        code: 'A1',
-        name: 'Prodotto 1',
-        variants: ['Variante 1', 'Variante 2'],
-        description: 'Prodotto 1 ........',
-        price: 100,
-        retailer: 'Retailer 1',
-        img: 'padella.jpg',
-        type: 'Product',
-    },
-    {
-        code: 'A2',
-        name: 'Prodotto 2',
-        variants: ['Variante 1', 'Variante 2', 'Variante 3'],
-        description: 'Prodotto 2 ........',
-        price: 120,
-        retailer: 'Retailer 2',
-        img: 'sedia.jpg',
-        type: 'Product',
-    },
-    {
-        code: 'A3',
-        name: 'Prodotto 3',
-        variants: ['Variante 1'],
-        description: 'Prodotto 3 ........',
-        price: 60,
-        retailer: 'Retailer 3',
-        img: 'sedia.jpg',
-        type: 'Product',
-    },
-    {
-        code: 'A4',
-        name: 'Prodotto 4',
-        variants: ['Variante 1', 'Variante 2', 'Variante 3', 'Variante 4'],
-        description: 'Prodotto 4 ........',
-        price: 40,
-        retailer: 'Retailer 4',
-        img: 'sedia.jpg',
-        type: 'Product',
-    },
-    {
-        code: 'A5',
-        name: 'Prodotto 5',
-        variants: ['Variante 1'],
-        description: 'Prodotto 5 ........',
-        price: 21,
-        retailer: 'Retailer 5',
-        img: 'sedia.jpg',
-        type: 'Product',
-    },
-];
+  {
+    code: 'A1',
+    name: 'Prodotto 1',
+    variants: ['Variante 1', 'Variante 2'],
+    description: 'Prodotto 1 ........',
+    price: 100,
+    retailer: 'Retailer 1',
+    img: 'padella.jpg',
+    type: 'Product',
+  },
+  {
+    code: 'A2',
+    name: 'Prodotto 2',
+    variants: ['Variante 1', 'Variante 2', 'Variante 3'],
+    description: 'Prodotto 2 ........',
+    price: 120,
+    retailer: 'Retailer 2',
+    img: 'sedia.jpg',
+    type: 'Product',
+  },
+  {
+    code: 'A3',
+    name: 'Prodotto 3',
+    variants: ['Variante 1'],
+    description: 'Prodotto 3 ........',
+    price: 60,
+    retailer: 'Retailer 3',
+    img: 'sedia.jpg',
+    type: 'Product',
+  },
+  {
+    code: 'A4',
+    name: 'Prodotto 4',
+    variants: ['Variante 1', 'Variante 2', 'Variante 3', 'Variante 4'],
+    description: 'Prodotto 4 ........',
+    price: 40,
+    retailer: 'Retailer 4',
+    img: 'sedia.jpg',
+    type: 'Product',
+  },
+  {
+    code: 'A5',
+    name: 'Prodotto 5',
+    variants: ['Variante 1'],
+    description: 'Prodotto 5 ........',
+    price: 21,
+    retailer: 'Retailer 5',
+    img: 'sedia.jpg',
+    type: 'Product',
+  },
+]
 // map object type to template
 const OBJECT_TO_TEMPLATE = new Map([
-    [
-        /*   Customer: customerTemplate,
+  [
+    /*   Customer: customerTemplate,
       Address: addressTemplate,
       Order: orderTemplate,
       OrderLineItems: orderLineItemsTemplate, */
-        'Product',
-        `<div class="card p-1 mb-4" style="max-width: 300px">
+    'Product',
+    `<div class="card p-1 mb-4" style="max-width: 300px">
           <div class="card-header">
             <div class="form-check">
               <input
@@ -142,6 +142,6 @@ const OBJECT_TO_TEMPLATE = new Map([
             />
           </div>
         </div>`,
-    ],
-]);
-export { OBJECT_TO_TEMPLATE, avaibleProducts, costumers };
+  ],
+])
+export { OBJECT_TO_TEMPLATE, avaibleProducts, costumers }

@@ -140,6 +140,41 @@ const avaibleProducts: Product[] = [
   },
 ]
 
+// Mock data for Product interface
+const mockProduct1: Product = {
+  code: 'P001',
+  name: 'Laptop',
+  variants: ['8GB RAM', '256GB SSD'],
+  description: 'Powerful laptop for multitasking',
+  price: 999.99,
+  retailer: 'Tech Store',
+}
+
+const mockProduct2: Product = {
+  code: 'P002',
+  name: 'Smartphone',
+  variants: ['64GB Storage', '5G Capability'],
+  description: 'High-performance smartphone',
+  price: 499.99,
+  retailer: 'Mobile Shop',
+}
+
+// Mock data for OrderLineItems interface
+const mockOrderLineItems: OrderLineItems[] = [
+  {
+    id: 1,
+    product: mockProduct1,
+    amount: 999.99,
+    quantity: 2,
+  },
+  {
+    id: 2,
+    product: mockProduct2,
+    amount: 499.99,
+    quantity: 3,
+  },
+]
+
 // map object type to template
 const OBJECT_TO_TEMPLATE = new Map<string, string>([
   [
