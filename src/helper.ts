@@ -1,4 +1,4 @@
-import { OBJECT_TO_TEMPLATE, OrderLineItems } from './data.js'
+import { OrderLineItems } from './data.js'
 
 //***************** RENDER FUNCTIONS ******************/
 //* Funzione per popolare il DOM
@@ -7,15 +7,15 @@ function render(array: any[], element: HTMLElement): void {
   let html = ''
   array.forEach((item) => {
     // popola template con i dati dell'array
-    let computedString = populateRenderedObject(item)
+    let computedString = populateProduct(item)
     html += computedString
   })
   element.innerHTML = html
 }
 
 //* Funzione per popolare il template con i dati dell'oggetto
-function populateRenderedObject(object: any): string {
-  let template = OBJECT_TO_TEMPLATE.get(object.type) || ''
+function populateProduct(object: any): string {
+  /*   let template = OBJECT_TO_TEMPLATE.get(object.type) || ''
   // sostituisci i placeholder con i dati dell'oggetto
   for (const key in object) {
     template = template.replace(`###${key}`, object[key])
@@ -26,7 +26,49 @@ function populateRenderedObject(object: any): string {
       `###option`,
       populateOptions(object['variants'])
     )
-  }
+  } */
+  const template = `<div id="${
+    object.code
+  }" class="card p-1 mb-4" style="max-width: 300px">
+          <div class="card-header">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="defaultCheck1"
+              />
+              <label class="form-check-label" for="defaultCheck1">
+                Add to cart
+              </label>
+            </div>
+          </div>
+          <div class="card-body bg-light">
+            <img
+              src="../src/static/${object.img}"
+              class="img-fluid mb-4"
+              alt="Responsive image"
+            />
+            <h4 class="card-title">${object.name}</h4>
+            <!--price-->
+            <h2 class="card-title text-success">${object.price}</h2>
+            <select id="options" class="form-control mb-4">
+            ${populateOptions(object.variants)}
+            </select>
+            <h6 class="card-title">Select quantity</h6>
+            <input
+              type="number"
+              class="form-control"
+              id="quantity"
+              name="quantity"
+              min="1"
+              max="5"
+              value="1"
+              onkeydown="return false"
+              style="caret-color: transparent"
+            />
+          </div>
+        </div>`
   return template
 }
 
