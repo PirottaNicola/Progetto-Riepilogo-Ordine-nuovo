@@ -1,16 +1,16 @@
-import { OrderLineItems } from './data.js'
+import { OrderLineItems } from "./data.js";
 
 //***************** RENDER FUNCTIONS ******************/
 //* Funzione per popolare il DOM
 // passo un array di oggetti e un elemento del DOM, la funzione popola l'elemento con i dati dell'array
 function render(array: any[], element: HTMLElement): void {
-  let html = ''
+  let html = "";
   array.forEach((item) => {
     // popola template con i dati dell'array
-    let computedString = populateProduct(item)
-    html += computedString
-  })
-  element.innerHTML = html
+    let computedString = populateProduct(item);
+    html += computedString;
+  });
+  element.innerHTML = html;
 }
 
 //* Funzione per popolare il template con i dati dell'oggetto
@@ -40,8 +40,8 @@ function populateProduct(object: any): string {
               <input
                 class="form-check-input"
                 type="checkbox"
-                value=""
-                id="defaultCheck1"
+                id="defaultCheckProduct${object.code}"
+                
               />
               <label class="form-check-label" for="defaultCheck1">
                 Add to cart
@@ -64,7 +64,7 @@ function populateProduct(object: any): string {
             <input
               type="number"
               class="form-control"
-              id="quantity"
+              id="quantityProduct${object.code}"
               name="quantity"
               min="1"
               max="5"
@@ -73,54 +73,54 @@ function populateProduct(object: any): string {
               style="caret-color: transparent"
             />
           </div>
-        </div>`
-  return template
+        </div>`;
+  return template;
 }
 
 // Funzione per popolare le opzioni del select
 function populateOptions(variants: Array<string>): string {
-  const option = `<option>###option</option>`
-  let computedOptions = ''
+  const option = `<option>###option</option>`;
+  let computedOptions = "";
   variants.forEach((variant) => {
-    computedOptions += option.replace(/###option/g, variant)
-  })
-  return computedOptions
+    computedOptions += option.replace(/###option/g, variant);
+  });
+  return computedOptions;
 }
 
 //***************** OTHERS ******************/
 function diFilippo(selectedProducts: OrderLineItems[]) {
   const prodottiSelezionati = document.querySelectorAll(
-    '.form-check-input:checked'
-  )
+    ".form-check-input:checked"
+  );
 
-  const prodSelected = []
+  const prodSelected = [];
 
   prodottiSelezionati.forEach((prodotto) => {
-    const card = prodotto.closest('.card')
-    const titolo = card.querySelector('.card-title').innerText
-    const select = card.querySelector('.form-control')
-    const quantita = select.value
+    const card = prodotto.closest(".card");
+    const titolo = card.querySelector(".card-title").innerText;
+    const select = card.querySelector(".form-control");
+    const quantita = select.value;
 
     prodSelected.push({
       titolo: titolo,
       quantita: quantita,
-    })
-  })
+    });
+  });
 
   if (prodSelected.length === 0) {
-    alert('Nessun prodotto selezionato!')
-    return
+    alert("Nessun prodotto selezionato!");
+    return;
   }
 
-  console.log('Elementi selezionati:', prodSelected)
+  console.log("Elementi selezionati:", prodSelected);
 
-  const newButton = document.createElement('button')
+  const newButton = document.createElement("button");
 
-  newButton.id = 'nextButton'
-  newButton.textContent = 'Next'
-  newButton.classList.add('btn', 'btn-primary', 'btn-lg', 'btn-block')
+  newButton.id = "nextButton";
+  newButton.textContent = "Next";
+  newButton.classList.add("btn", "btn-primary", "btn-lg", "btn-block");
 
-  document.body.appendChild(newButton)
+  document.body.appendChild(newButton);
 }
 
-export { diFilippo, render }
+export { diFilippo, render };

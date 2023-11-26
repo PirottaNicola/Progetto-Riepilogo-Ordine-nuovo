@@ -2,7 +2,7 @@
 //* Funzione per popolare il DOM
 // passo un array di oggetti e un elemento del DOM, la funzione popola l'elemento con i dati dell'array
 function render(array, element) {
-    let html = '';
+    let html = "";
     array.forEach((item) => {
         // popola template con i dati dell'array
         let computedString = populateProduct(item);
@@ -35,8 +35,8 @@ function populateProduct(object) {
               <input
                 class="form-check-input"
                 type="checkbox"
-                value=""
-                id="defaultCheck1"
+                id="defaultCheckProduct${object.code}"
+                
               />
               <label class="form-check-label" for="defaultCheck1">
                 Add to cart
@@ -59,7 +59,7 @@ function populateProduct(object) {
             <input
               type="number"
               class="form-control"
-              id="quantity"
+              id="quantityProduct${object.code}"
               name="quantity"
               min="1"
               max="5"
@@ -74,7 +74,7 @@ function populateProduct(object) {
 // Funzione per popolare le opzioni del select
 function populateOptions(variants) {
     const option = `<option>###option</option>`;
-    let computedOptions = '';
+    let computedOptions = "";
     variants.forEach((variant) => {
         computedOptions += option.replace(/###option/g, variant);
     });
@@ -82,12 +82,12 @@ function populateOptions(variants) {
 }
 //***************** OTHERS ******************/
 function diFilippo(selectedProducts) {
-    const prodottiSelezionati = document.querySelectorAll('.form-check-input:checked');
+    const prodottiSelezionati = document.querySelectorAll(".form-check-input:checked");
     const prodSelected = [];
     prodottiSelezionati.forEach((prodotto) => {
-        const card = prodotto.closest('.card');
-        const titolo = card.querySelector('.card-title').innerText;
-        const select = card.querySelector('.form-control');
+        const card = prodotto.closest(".card");
+        const titolo = card.querySelector(".card-title").innerText;
+        const select = card.querySelector(".form-control");
         const quantita = select.value;
         prodSelected.push({
             titolo: titolo,
@@ -95,14 +95,14 @@ function diFilippo(selectedProducts) {
         });
     });
     if (prodSelected.length === 0) {
-        alert('Nessun prodotto selezionato!');
+        alert("Nessun prodotto selezionato!");
         return;
     }
-    console.log('Elementi selezionati:', prodSelected);
-    const newButton = document.createElement('button');
-    newButton.id = 'nextButton';
-    newButton.textContent = 'Next';
-    newButton.classList.add('btn', 'btn-primary', 'btn-lg', 'btn-block');
+    console.log("Elementi selezionati:", prodSelected);
+    const newButton = document.createElement("button");
+    newButton.id = "nextButton";
+    newButton.textContent = "Next";
+    newButton.classList.add("btn", "btn-primary", "btn-lg", "btn-block");
     document.body.appendChild(newButton);
 }
 export { diFilippo, render };
