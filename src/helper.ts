@@ -29,7 +29,12 @@ function populateProduct(object: any): string {
   } */
   const template = `<div id="${
     object.code
-  }" class="card p-1 mb-4" style="max-width: 300px">
+  }" class="card p-1 mb-4" style="  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: calc(25% - 20px);
+  margin: 10px;
+  min-width: 400px;
+  max-width: calc(25% - 100px);">
           <div class="card-header">
             <div class="form-check">
               <input
